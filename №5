@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <locale.h>
+int main()
+{
+	int A, B;
+	setlocale(LC_ALL, "Russian");
+	printf("Введите целые положительные числа A и B через пробел: ");
+	scanf("%i %i", &A, &B);
+	printf("\nПрограмма найдет их наибольший общий делитель (НОД), используя алгоритм Евклида.");
+	int c = gcd(A, B);
+	printf("\n\nНОД = %i\n", c);
+}
+int gcd(int a, int b) 
+{
+	int c;
+	while (b) 
+	{
+		c = a % b;
+		a = b;
+		b = c;
+	}
+	return abs(a);
+}
